@@ -1,0 +1,12 @@
+{
+    "parser": "babel-eslint",
+    "extends": ["standard", "standard-react", "airbnb"],
+    "plugins": ["react"],
+    "rules": {
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+        "no-trailing-spaces": ["error", { "skipBlankLines": true }],
+        "tabWidth": 4,
+        "import/no-extraneous-dependencies": 0,
+        "react/jsx-indent": [4, 4]
+    }
+}
