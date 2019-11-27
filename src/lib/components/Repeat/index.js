@@ -35,6 +35,9 @@ const Repeat = ({
             <strong>
               {translateLabel(translations, 'repeat.label')}
             </strong>
+            <span>
+            {translateLabel(translations, 'repeat.description')}
+            </span>
           </label>
         </div>
         <div className="col-sm-6">
