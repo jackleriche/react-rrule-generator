@@ -46,10 +46,12 @@ export default {
     },
     start: {
         label: 'Start',
+        description: "",
         tooltip: 'Datetime picker for start on date',
     },
     repeat: {
         label: 'Repeat',
+        description: "",
         yearly: {
             label: 'Yearly',
             on: 'on',
@@ -81,6 +83,7 @@ export default {
     },
     end: {
         label: 'End',
+        description: "",
         tooltip: 'Datetime picker for end on date',
         never: 'Never',
         after: 'After',
