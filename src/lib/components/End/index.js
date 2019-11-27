@@ -23,6 +23,9 @@ const End = ({
                         <strong>
                             {translateLabel(translations, 'end.label')}
                         </strong>
+                        <span>
+                            {translateLabel(translations, 'end.description')}
+                          </span>
                     </label>
                 </div>
                 {/* <div className="col-sm-3">
