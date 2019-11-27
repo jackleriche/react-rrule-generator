@@ -4,7 +4,7 @@
 [![LICENSE](https://img.shields.io/npm/l/express.svg)](LICENSE)
 [![npm](https://img.shields.io/npm/dm/localeval.svg)](https://npm-stat.com/charts.html?package=rrrule-generator)
 
-### This project is no longer maintained by me. Thank you for all your past contributions. Let the forks rock it for you.
+### I havbe picked this project up from the fantastic fafruch, updates will continue
 
 
 ![Screenshot](https://i.imgur.com/FU3aGlz.png)
