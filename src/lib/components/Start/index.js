@@ -22,6 +22,10 @@ const Start = ({
           <strong>
             {translateLabel(translations, 'start.label')}
           </strong>
+          <span>
+            {translateLabel(translations, 'start.description')}
+          </span>
+
         </label>
       </div>
       <StartOnDate id={id} onDate={onDate} handleChange={handleChange} translations={translations} />
