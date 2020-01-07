@@ -47,31 +47,6 @@ const EndOnDate = ({
     return (
         <div className="col-6 col-sm-3">
             <DatePicker selected={endDate} onChange={handleDateChange} />
-            {/* <DateTime
-                {...calendarAttributes}
-                inputProps={{
-                    id: `${id}-datetime`,
-                    name: 'end.onDate.date',
-                    readOnly: true,
-                }}
-                locale={translateLabel(translations, 'locale')}
-                isValidDate={valid}
-                timeFormat={false}
-                viewMode="days"
-                closeOnSelect
-                closeOnTab
-                required
-                onChange={inputDate => {
-                    const editedEvent = {
-                        target: {
-                            value: moment(inputDate).format(DATE_TIME_FORMAT),
-                            name: 'end.onDate.date',
-                        },
-                    };
-
-                    handleChange(editedEvent);
-                }}
-            /> */}
         </div>
     );
 };
