@@ -24,7 +24,7 @@ const EndOnDate = ({
         readOnly: true,
     };
 
-    const [endDate, setEndDate] = useState();
+    const [endDate, setEndDate] = useState(new Date());
     const handleDateChange = date => {
         setEndDate(date);
 
@@ -36,11 +36,6 @@ const EndOnDate = ({
         };
 
         handleChange(editedEvent);
-    };
-
-    var nextYear = moment().add(2, 'years');
-    var valid = function(current) {
-        return current.isBefore(nextYear);
     };
 
     return (
