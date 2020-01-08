@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
-import DateTime from 'react-datetime';
+import DatePicker from 'react-datepicker';
 import 'moment/min/locales';
 
 import { DATE_TIME_FORMAT } from '../../constants/index';
@@ -24,6 +24,20 @@ const EndOnDate = ({
         readOnly: true,
     };
 
+    const [endDate, setEndDate] = useState();
+    const handleDateChange = date => {
+        setEndDate(date);
+
+        const editedEvent = {
+            target: {
+                value: moment(date),
+                name: 'end.onDate.date',
+            },
+        };
+
+        handleChange(editedEvent);
+    };
+
     var nextYear = moment().add(2, 'years');
     var valid = function(current) {
         return current.isBefore(nextYear);
@@ -31,50 +45,7 @@ const EndOnDate = ({
 
     return (
         <div className="col-6 col-sm-3">
-            {CustomCalendar ? (
-                <CustomCalendar
-                    key={`${id}-calendar`}
-                    {...calendarAttributes}
-                    onChange={event => {
-                        const editedEvent = {
-                            target: {
-                                value: event.target.value,
-                                name: 'end.onDate.date',
-                            },
-                        };
-
-                        handleChange(editedEvent);
-                    }}
-                />
-            ) : (
-                <DateTime
-                    {...calendarAttributes}
-                    inputProps={{
-                        id: `${id}-datetime`,
-                        name: 'end.onDate.date',
-                        readOnly: true,
-                    }}
-                    locale={translateLabel(translations, 'locale')}
-                    isValidDate={valid}
-                    timeFormat={false}
-                    viewMode="days"
-                    closeOnSelect
-                    closeOnTab
-                    required
-                    onChange={inputDate => {
-                        const editedEvent = {
-                            target: {
-                                value: moment(inputDate).format(
-                                    DATE_TIME_FORMAT
-                                ),
-                                name: 'end.onDate.date',
-                            },
-                        };
-
-                        handleChange(editedEvent);
-                    }}
-                />
-            )}
+            <DatePicker selected={endDate} onChange={handleDateChange} />
         </div>
     );
 };
