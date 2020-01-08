@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
+
+import DatePicker from 'react-datepicker';
+
 import 'moment/min/locales';
 
 import DatePicker from 'react-datepicker';
@@ -26,11 +29,7 @@ const EndOnDate = ({
         readOnly: true,
     };
 
-    var nextYear = moment().add(2, 'years');
-    var valid = function(current) {
-        return current.isBefore(nextYear);
-    };
-    const [endDate, setEndDate] = useState(new Date());
+    const [endDate, setEndDate] = useState();
     const handleDateChange = date => {
         setEndDate(date);
 
@@ -43,10 +42,19 @@ const EndOnDate = ({
 
         handleChange(editedEvent);
     };
+    const [endDate, setEndDate] = useState(new Date());
+    const handleDateChange = date => {
+        setEndDate(date);
 
     return (
         <div className="col-6 col-sm-3">
-            <DatePicker selected={endDate} onChange={handleDateChange} />
+            <DatePicker
+                selected={endDate}
+                onChange={handleDateChange}
+                dateFormat="dd/MM/yyyy"
+                placeholderText="Please select an end date"
+            />
+
         </div>
     );
 };

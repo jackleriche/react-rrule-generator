@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
+import DatePicker from 'react-datepicker';
 
 import 'moment/min/locales';
 
@@ -16,6 +17,9 @@ const StartOnDate = ({
     handleChange,
     translations,
 }) => {
+
+    const CustomCalendar = options.calendarComponent;
+
     const locale = options.weekStartsOnSunday ? 'en-ca' : 'en-gb';
     const calendarAttributes = {
         'aria-label': translateLabel(translations, 'start.tooltip'),
@@ -25,8 +29,8 @@ const StartOnDate = ({
         readOnly: true,
     };
 
-    const [startDate, setStartDate] = useState(new Date());
 
+    const [startDate, setStartDate] = useState();
     const handleDateChange = date => {
         setStartDate(date);
 
@@ -42,7 +46,13 @@ const StartOnDate = ({
 
     return (
         <div className="col-6 col-sm-3">
-            <DatePicker selected={startDate} onChange={handleDateChange} />
+            <DatePicker
+                selected={startDate}
+                onChange={handleDateChange}
+                dateFormat="dd/MM/yyyy"
+                placeholderText="Please select a start date"
+            />
+
         </div>
     );
 };
