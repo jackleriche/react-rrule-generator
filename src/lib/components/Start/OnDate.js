@@ -39,7 +39,12 @@ const StartOnDate = ({
 
     return (
         <div className="col-6 col-sm-3">
-            <DatePicker selected={startDate} onChange={handleDateChange} />
+            <DatePicker
+                selected={startDate}
+                onChange={handleDateChange}
+                dateFormat="dd/MM/yyyy"
+                placeholderText="Please select a start date"
+            />
         </div>
     );
 };

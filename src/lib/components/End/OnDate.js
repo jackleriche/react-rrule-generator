@@ -24,7 +24,7 @@ const EndOnDate = ({
         readOnly: true,
     };
 
-    const [endDate, setEndDate] = useState(new Date());
+    const [endDate, setEndDate] = useState();
     const handleDateChange = date => {
         setEndDate(date);
 
@@ -40,7 +40,12 @@ const EndOnDate = ({
 
     return (
         <div className="col-6 col-sm-3">
-            <DatePicker selected={endDate} onChange={handleDateChange} />
+            <DatePicker
+                selected={endDate}
+                onChange={handleDateChange}
+                dateFormat="dd/MM/yyyy"
+                placeholderText="Please select an end date"
+            />
         </div>
     );
 };
