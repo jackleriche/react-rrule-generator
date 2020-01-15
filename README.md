@@ -1,10 +1,8 @@
 # React RRule Generator
 
-> Recurrence rules generator form built with React
-
-!Project now updated to work with the more common React-Datepicker
-
 [![LICENSE](https://img.shields.io/npm/l/express.svg)](LICENSE)
+
+> Recurrence rules generator form built with React
 
 ![Screenshot](https://i.imgur.com/FU3aGlz.png)
 
