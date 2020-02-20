@@ -7,7 +7,7 @@
         "url": "git+https://github.com/jackleriche/react-rrule-generator.git"
     },
     "license": "MIT",
-    "main": "dist/index.js",
+    "main": "dist/main.js",
     "scripts": {
         "postbuild": "webpack-dev-server --config webpack.config.dev.js",
         "build": "webpack-dev-server --config webpack.config.dev.js",
