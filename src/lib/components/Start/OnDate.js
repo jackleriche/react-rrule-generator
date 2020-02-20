@@ -27,13 +27,13 @@ const StartOnDate = ({
         readOnly: true,
     };
 
-    const [startDate, setStartDate] = useState();
+    const [startDate, setStartDate] = useState(new Date());
     const handleDateChange = date => {
         setStartDate(date);
 
         const editedEvent = {
             target: {
-                value: moment(date),
+                value: moment.utc(date),
                 name: 'start.onDate.date',
             },
         };

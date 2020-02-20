@@ -26,15 +26,4 @@ module.exports = {
             { from: './public/index.html', to: './index.html' },
         ]),
     ],
-    devServer: {
-        contentBase: path.join(__dirname, 'dist'),
-        compress: true,
-        port: 8080,
-        inline: true,
-        watchOptions: {
-            aggregateTimeout: 300,
-            poll: true,
-            ignored: /node_modules/,
-        },
-    },
 };

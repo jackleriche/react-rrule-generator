@@ -30,7 +30,7 @@ const EndOnDate = ({
 
         const editedEvent = {
             target: {
-                value: moment(date),
+                value: moment.utc(date),
                 name: 'end.onDate.date',
             },
         };

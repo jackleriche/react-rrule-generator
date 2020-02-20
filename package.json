@@ -9,8 +9,8 @@
     "license": "MIT",
     "main": "build/index.js",
     "scripts": {
-        "start": "webpack --config webpack.config.dev.js",
-        "build": "webpack --config webpack.config.dev.js",
+        "postbuild": "webpack-dev-server --config webpack.config.dev.js",
+        "build": "webpack-dev-server --config webpack.config.dev.js",
         "build-demo": "node scripts/build-demo.js",
         "test": "node scripts/test.js --env=jsdom",
         "predeploy": "npm run build-demo",
