@@ -1,6 +1,6 @@
 {
     "name": "rrrule-generator",
-    "version": "1.6.2",
+    "version": "1.6.3",
     "author": "Jack Le Riche<me@jackleriche.co.uk>",
     "repository": {
         "type": "git",
@@ -9,8 +9,7 @@
     "license": "MIT",
     "main": "dist/main.js",
     "scripts": {
-        "postbuild": "webpack-dev-server --config webpack.config.dev.js",
-        "build": "webpack-dev-server --config webpack.config.dev.js",
+        "build": "webpack --config webpack.config.dev.js",
         "build-demo": "node scripts/build-demo.js",
         "test": "node scripts/test.js --env=jsdom",
         "predeploy": "npm run build-demo",
