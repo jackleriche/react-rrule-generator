@@ -1,7 +1,19 @@
 {
-  "presets": ["react", "es2015"],
-  "plugins": [
-    "transform-class-properties",
-    "transform-object-rest-spread"
-  ]
+    "presets": [
+        [
+            "@babel/env",
+            {
+                "targets": {
+                    "browsers": [">0.25%", "ie 11"]
+                }
+            }
+        ],
+        "@babel/react",
+        "@babel/typescript"
+    ],
+    "plugins": [
+        "@babel/proposal-class-properties"
+        //     "@babel/proposal-object-rest-spread",
+        //     "@babel/plugin-transform-runtime"
+    ]
 }

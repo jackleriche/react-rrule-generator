@@ -1,14 +1,9 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import moment from 'moment';
 
-import DatePicker from 'react-datepicker';
-
 import 'moment/min/locales';
-
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-
 import { DATE_TIME_FORMAT } from '../../constants/index';
 import translateLabel from '../../utils/translateLabel';
 
@@ -29,7 +24,7 @@ const EndOnDate = ({
         readOnly: true,
     };
 
-    const [endDate, setEndDate] = useState();
+    const [endDate, setEndDate] = useState(new Date());
     const handleDateChange = date => {
         setEndDate(date);
 
@@ -42,9 +37,6 @@ const EndOnDate = ({
 
         handleChange(editedEvent);
     };
-    const [endDate, setEndDate] = useState(new Date());
-    const handleDateChange = date => {
-        setEndDate(date);
 
     return (
         <div className="col-6 col-sm-3">
@@ -54,26 +46,8 @@ const EndOnDate = ({
                 dateFormat="dd/MM/yyyy"
                 placeholderText="Please select an end date"
             />
-
         </div>
     );
-};
-
-EndOnDate.propTypes = {
-    id: PropTypes.string.isRequired,
-    onDate: PropTypes.shape({
-        date: PropTypes.string.isRequired,
-        options: PropTypes.shape({
-            weekStartsOnSunday: PropTypes.bool,
-            calendarComponent: PropTypes.oneOfType([
-                PropTypes.element,
-                PropTypes.func,
-            ]),
-        }).isRequired,
-    }).isRequired,
-    handleChange: PropTypes.func.isRequired,
-    translations: PropTypes.oneOfType([PropTypes.object, PropTypes.func])
-        .isRequired,
 };
 
 export default EndOnDate;

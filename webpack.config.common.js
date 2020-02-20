@@ -1,7 +1,6 @@
 var webpack = require('webpack');
 var path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
     entry: { main: './src/demo/index.js' },
@@ -12,7 +11,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.js?$/,
+                test: /\.js$|jsx/,
                 use: 'babel-loader',
                 exclude: /node_modules/,
             },
@@ -27,10 +26,6 @@ module.exports = {
             { from: './public/index.html', to: './index.html' },
         ]),
     ],
-
-    optimization: {
-        minimizer: [new UglifyJsPlugin()],
-    },
     devServer: {
         contentBase: path.join(__dirname, 'dist'),
         compress: true,
