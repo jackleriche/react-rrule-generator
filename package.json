@@ -9,11 +9,8 @@
     "license": "MIT",
     "main": "dist/main.js",
     "scripts": {
-        "build": "webpack --config webpack.config.dev.js",
-        "build-demo": "node scripts/build-demo.js",
-        "test": "node scripts/test.js --env=jsdom",
-        "predeploy": "npm run build-demo",
-        "deploy": "gh-pages -d build-demo"
+        "start": "webpack-dev-server --config webpack.config.dev.js",
+        "prod": "webpack --config webpack.config.prod.js"
     },
     "homepage": "https://github.com/jackleriche/react-rrule-generator",
     "devDependencies": {
