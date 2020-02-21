@@ -1,36 +1,26 @@
 import React, { useState } from 'react';
-import moment from 'moment';
 
 import 'moment/min/locales';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { DATE_TIME_FORMAT } from '../../constants/index';
-import translateLabel from '../../utils/translateLabel';
 
-const EndOnDate = ({
-    id,
-    onDate: { date, options },
-    handleChange,
-    translations,
-}) => {
-    const CustomCalendar = options.calendarComponent;
-
-    const locale = options.weekStartsOnSunday ? 'en-ca' : 'en-gb';
-    const calendarAttributes = {
-        'aria-label': translateLabel(translations, 'end.tooltip'),
-        value: date,
-        dateFormat: DATE_TIME_FORMAT,
-        locale,
-        readOnly: true,
-    };
-
-    const [endDate, setEndDate] = useState(new Date());
+function EndOnDate({ handleChange }) {
+    const [endDate, setEndDate] = useState();
     const handleDateChange = date => {
-        setEndDate(date);
+        const day = date.getDate();
+        const month = date.getMonth(); //Be careful! January is 0 not 1
+        const year = date.getFullYear();
 
+        const cleanDate = new Date();
+        cleanDate.setUTCFullYear(year);
+        cleanDate.setUTCMonth(month);
+        cleanDate.setUTCDate(day);
+        cleanDate.setUTCHours(0, 0, 0, 0);
+
+        setEndDate(cleanDate);
         const editedEvent = {
             target: {
-                value: moment.utc(date),
+                value: cleanDate,
                 name: 'end.onDate.date',
             },
         };
@@ -48,6 +38,6 @@ const EndOnDate = ({
             />
         </div>
     );
-};
+}
 
 export default EndOnDate;

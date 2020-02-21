@@ -11,6 +11,7 @@ const computeRRule = ({ start, repeat, end, options }) => {
         ...computeRepeat(repeat),
         ...computeEnd(end),
         ...computeOptions(options),
+        tzid: 'Europe/London',
     };
 
     console.log({ rruleObject });

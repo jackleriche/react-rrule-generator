@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import ReactRRuleGenerator, { translations } from '../lib';
 import './index.css';
 import TextareaAutosize from 'react-autosize-textarea';
@@ -55,6 +54,18 @@ class App extends Component {
                         translations={this.getTranslation()}
                     />
                 </div>
+                <div className="app container">
+                    <div className="col-sm-8">
+                        <TextareaAutosize
+                            className={`form-control rrule ${
+                                isCopied ? 'rrule-copied' : 'rrule-not-copied'
+                            }`}
+                            value={rrule}
+                            readOnly
+                        />
+                    </div>
+                </div>
+
                 <div className="app container">
                     <div className="col-sm-8">
                         <TextareaAutosize

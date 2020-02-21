@@ -1,39 +1,29 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import moment from 'moment';
 
 import 'moment/min/locales';
 
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
-import { DATE_TIME_FORMAT } from '../../constants/index';
-import translateLabel from '../../utils/translateLabel';
-
-const StartOnDate = ({
-    id,
-    onDate: { date, options },
-    handleChange,
-    translations,
-}) => {
-    const CustomCalendar = options.calendarComponent;
-
-    const locale = options.weekStartsOnSunday ? 'en-ca' : 'en-gb';
-    const calendarAttributes = {
-        'aria-label': translateLabel(translations, 'start.tooltip'),
-        value: date,
-        dateFormat: DATE_TIME_FORMAT,
-        locale,
-        readOnly: true,
-    };
-
-    const [startDate, setStartDate] = useState(new Date());
+function StartOnDate({ handleChange }) {
+    const [startDate, setStartDate] = useState();
     const handleDateChange = date => {
-        setStartDate(date);
+        // strip date
+        const day = date.getDate();
+        const month = date.getMonth(); //Be careful! January is 0 not 1
+        const year = date.getFullYear();
+
+        const cleanDate = new Date();
+        cleanDate.setUTCFullYear(year);
+        cleanDate.setUTCMonth(month);
+        cleanDate.setUTCDate(day);
+        cleanDate.setUTCHours(0, 0, 0, 0);
+
+        setStartDate(cleanDate);
 
         const editedEvent = {
             target: {
-                value: moment.utc(date),
+                value: cleanDate,
                 name: 'start.onDate.date',
             },
         };
@@ -51,23 +41,6 @@ const StartOnDate = ({
             />
         </div>
     );
-};
-
-StartOnDate.propTypes = {
-    id: PropTypes.string.isRequired,
-    onDate: PropTypes.shape({
-        date: PropTypes.string.isRequired,
-        options: PropTypes.shape({
-            weekStartsOnSunday: PropTypes.bool,
-            calendarComponent: PropTypes.oneOfType([
-                PropTypes.element,
-                PropTypes.func,
-            ]),
-        }).isRequired,
-    }).isRequired,
-    handleChange: PropTypes.func.isRequired,
-    translations: PropTypes.oneOfType([PropTypes.object, PropTypes.func])
-        .isRequired,
-};
+}
 
 export default StartOnDate;

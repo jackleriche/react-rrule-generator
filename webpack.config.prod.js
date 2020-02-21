@@ -1,15 +1,17 @@
 const merge = require('webpack-merge');
 const common = require('./webpack.config.common.js');
+var path = require('path');
 
 module.exports = merge(common, {
     entry: { main: './src/lib/index.js' },
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'main.js',
+        libraryTarget: 'umd',
     },
     mode: 'production',
-    devtool: 'nosources-source-map',
-    devServer: {
-        historyApiFallback: false,
+    externals: {
+        react: 'react',
+        reactDom: 'react-dom',
     },
 });

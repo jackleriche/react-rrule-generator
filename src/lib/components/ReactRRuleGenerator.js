@@ -89,7 +89,6 @@ class ReactRRuleGenerator extends PureComponent {
                             <hr />
                         </div>
                     )}
-
                     <div>
                         <Repeat
                             id={`${id}-repeat`}
@@ -98,18 +97,15 @@ class ReactRRuleGenerator extends PureComponent {
                             translations={this.props.translations}
                         />
                     </div>
-
-                    {!options.hideEnd && (
-                        <div>
-                            <hr />
-                            <End
-                                id={`${id}-end`}
-                                end={end}
-                                handleChange={this.handleChange}
-                                translations={this.props.translations}
-                            />
-                        </div>
-                    )}
+                    <div>
+                        <hr />
+                        <End
+                            id={`${id}-end`}
+                            end={end}
+                            handleChange={this.handleChange}
+                            translations={this.props.translations}
+                        />
+                    </div>
                 </div>
             </div>
         );
